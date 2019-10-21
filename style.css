@@ -1,0 +1,115 @@
+#principal{
+    border-radius: 10px;
+    border: 2px solid white;
+    width: 1000px;
+	margin: 0px auto;
+	background-color: rgb(255, 255, 255);
+}
+
+#flex-container{
+    margin-top:10px; 
+    border-bottom: 1px  solid rgb(69, 64, 71);
+    padding: 0px;
+    height: 300px;
+    justify-content: space-around;
+
+    
+    
+}
+#botaoSeguir{
+    width: 140px;
+    text-align: center;
+    height: 50px;
+    border: 1px solid;
+    border-radius:6px;
+    font-size: 18px;
+    transform: translate(480px,-130px);
+}
+
+
+.item {
+    padding: 10px ;
+    text-align: center;
+    
+}
+
+.itemPublicacoes { 
+    transform: translate(40px,-100px);
+    text-align: center;
+    
+}
+.menu{ 
+    grid-area: menu; 
+    text-align: center;
+
+
+}
+.itemMenu img{
+    top: 50%;
+    border: 2px solid rgb(69, 64, 71);
+    border-radius: 100%;
+    padding: 1px;
+    height: 180px;
+    width: 180px;
+}
+.menuzin{
+    color: rgb(69, 64, 71);
+    font-size: 25px;
+    display: inline;
+    padding: 15px;
+    padding-bottom: 50px;
+}
+.itemRight{
+    width: 550px;
+    text-align: center;
+    padding: 10px 1px;
+    border-radius:6px;
+    font-size: 18px;
+    transform: translate(50%,-200px);
+}
+
+#nome{
+    color: rgb(69, 64, 71);
+    font-size: 30px;
+    margin-top: -5px;
+}
+
+#album-view img {
+    border: 2px solid rgb(69, 64, 71);
+    padding: 0px;
+    border-radius: 3px;
+    margin: 15px;
+    height: 293px;
+    width: 293px;
+    overflow: hidden;
+    -webkit-box-shadow: 10px 10px 10px #111;
+    box-shadow: 5px 5px 5px #111;
+  }
+  
+  #modal-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+  
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #modal-view img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+  
+  #modal-view.hidden {
+    display: none;
+  }
+  
+  .no-scroll {
+    overflow: hidden;
+  }
