@@ -9,13 +9,9 @@ const PHOTO_LIST = [
     'images/g8.jpg',
     'images/g9.jpg',
   ];
-  //if(event.keyCode ==39){
-    //const newImage = event.currentTarget
-    //newImage.src="images/g8.jpg"
-//}
-function createImage(src) {
+function createImage(src, i) {
     const image = document.createElement('img');
-    image.src = src;
+    image.src = src
     return image;
   }
   
@@ -25,37 +21,32 @@ function createImage(src) {
     modalView.style.top = window.pageYOffset + 'px';
     modalView.appendChild(image);
     modalView.classList.remove('hidden');
-    var a1 = Number(image.classList.value.split('images')[1])
-    console.log(a1)
-      let cont = 9;
-    
-        addEventListener("keydown", function(event){
-          const albumView = document.querySelector('#album-view');
-          for(let i=1;i<=cont;i++){
-            console.log(i)
-            
-            if (event.key === 'Escape'){
-              modalView.innerHTML = '';
-              modalView.classList.add('hidden');
-              document.body.classList.remove('no-scroll');
-            }
-            if(event.key === 'ArrowRight'){
-                modalView.innerHTML = '';
-                image = createImage('images/g'+i+'.jpg')
-                modalView.appendChild(image);
-            }if(event.key === 'ArrowLeft'){
-              modalView.innerHTML = '';
-              image = createImage('images/g'+(i-1)+'.jpg')
-              modalView.appendChild(image);
-              
-            }
-            if(i === 0) cont =1;
+    let a1 = 1
+    addEventListener("keydown", function(event){
+        const albumView = document.querySelector('#album-view');
+        if (event.key === 'Escape'){
+          modalView.innerHTML = '';
+          modalView.classList.add('hidden');
+          document.body.classList.remove('no-scroll');
+        }
+        if(event.key === 'ArrowRight'){
+          if(a1<9){
+            modalView.innerHTML = '';
+            a1 = a1 + 1
+            image = createImage('images/g'+(a1)+'.jpg')
+            modalView.appendChild(image);
           }
-
-        });
-      
-
-
+        }       
+        if(event.key === 'ArrowLeft' ){
+          if(a1>>1 && a1<=9){
+            a1 = a1-1
+            modalView.innerHTML = '';
+            image = createImage('images/g'+(a1)+'.jpg')
+            modalView.appendChild(image);
+          }
+          
+        }
+    })
   }
   
   function onModalClick() {
@@ -63,13 +54,11 @@ function createImage(src) {
     modalView.classList.add('hidden');
     modalView.innerHTML = '';
   }
-  
-  // Main
-  
+
   const albumView = document.querySelector('#album-view');
-  for (let i = 0; i < PHOTO_LIST.length; i++) {
+  for (let i = 0; i < PHOTO_LIST.length; i++){
     const photoSrc = PHOTO_LIST[i];
-    const image = createImage(photoSrc);
+    const image = createImage(photoSrc , i);
     image.addEventListener('click', onThumbnailClick);
     albumView.appendChild(image);
   }
@@ -80,28 +69,6 @@ function createImage(src) {
   function Seguir(){
     const title = document.querySelector('button')
     title.textContent = 'Seguindo'
-  
-
 }
   const botao = document.querySelector('button')
   botao.addEventListener('click', Seguir)
-
-  function trocar(){
-
-    if(currentImgIndex == ImgSrcArray.length && event.keyCode == 39){ //reseta quando o contatador for igual ao tamanho da array e volta a 1° img
-      currentImgIndex=0;
-    }
-    document.getElementById("images/g").src=ImgSrcArray[currentImgIndex]; //altera a img do elemento "agni" de acordo com o indice
-      currentImgIndex++; // incrementa a nossa referencia
-  
-  }
-
-
-  // addEventListener("keydown", function(event) {
-  //   if (event.key === 't')
-  //     document.body.style.background = "violet";
-  // });
-  // addEventListener("keyup", function(event) {
-  //   if (event.key === 'h')
-  //     document.body.style.background = "";
-  // });
